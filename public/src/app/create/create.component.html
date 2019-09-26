@@ -1,0 +1,20 @@
+<a style="float: right; margin-right: 5rem" [routerLink]="['/pets']">Back</a>
+<h1>Know of a pet needing a home?</h1>
+<hr>
+<div *ngIf="error">
+  <ul *ngFor="let x of error" in class="list-group">
+    <li class="alert alert-danger">{{x}}</li>
+  </ul>
+</div>
+<form (submit)="create()">
+        <h3>Pet name: <input class="fields" type="text" name="name" [(ngModel)]="Survey.name"></h3>
+        <p class="fronterror" *ngIf="Survey.name.length < 3">Name must be at least 3 characters long!</p>
+        <h3>Pet type: <input class="fields" type="text" name="type" [(ngModel)]="Survey.type"></h3>
+        <h3>Description: <input class="fields" type="text" name="description" [(ngModel)]="Survey.description"></h3>
+        <h3>Skills:</h3>
+        <h3>Skill 1: <input class="fields" type="text" name="skill1" [(ngModel)]="Survey.skill1"></h3>
+        <h3>Skill 2: <input class="fields" type="text" name="skill2" [(ngModel)]="Survey.skill2"></h3>
+        <h3>Skill 3: <input class="fields" type="text" name="skill3" [(ngModel)]="Survey.skill3"></h3>
+        <input class="button btn btn-success" type="submit" value="Add pet">
+        <a class="btn btn-primary" [routerLink]="['/dashboard']">Cancel</a>
+      </form>

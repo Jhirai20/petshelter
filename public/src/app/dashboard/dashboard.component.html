@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box"> 
+    <h3>These pets are looking for a home!</h3> 
+    <a class="nav-link" [routerLink]="['/pets','new']"> Add a pet to the shelter <span class="sr-only">(current)</span></a>  
+    <div class="frame" >
+      <table class="table table-striped table-inverse table-responsive">
+        <thead class="thead-inverse">
+          <tr>
+            <th>Name:</th>
+            <th>Type:</th>
+            <th>Date posted:</th>
+            <th>Action:</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let Survey of Surveys">
+              <td scope="row">{{Survey.name}}</td>
+              <td>{{Survey.type}} </td>
+              <td>{{format(Survey.createdAt)}}</td>
+              <td>
+                <button  class="button btn btn-primary" [routerLink]="['/pets', Survey._id]">Details</button><span class="sr-only">(current)</span>
+                <button  class="button btn btn-secondary" [routerLink]="['/pets', Survey._id,'edit']">Edit</button><span class="sr-only">(current)</span>
+              
+              
+              </td>
+            </tr>
+          </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
